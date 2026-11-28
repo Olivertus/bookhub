@@ -618,6 +618,7 @@ function guardarLibro() {
   guardarLibros();
   filtrarLibros();
   actualizarKPIs();
+  actualizarGrafico();
   cerrarModal();
 }
 
@@ -642,6 +643,7 @@ function eliminarLibro(id) {
   guardarLibros();
   filtrarLibros();
   actualizarKPIs();
+  actualizarGrafico();
 }
 
 // Gestiona las acciones de todas las tarjetas desde el catálogo.
@@ -670,6 +672,69 @@ function inicializarAccionesCatalogo() {
       eliminarLibro(id);
     }
   });
+}
+
+// Actualiza el gráfico de barras con la cantidad de libros por categoría.
+function actualizarGrafico() {
+  if (typeof window.Chart === "undefined") {
+    console.warn("Chart.js no está disponible. No se pudo actualizar el gráfico.");
+    return;
+  }
+
+  const canvas = document.getElementById("grafico-categorias");
+
+  if (!canvas) {
+    console.warn('No se encontró el canvas "#grafico-categorias".');
+    return;
+  }
+
+  const categorias = CATEGORIAS_VALIDAS;
+
+  const cantidades = categorias.map((categoria) =>
+    librosOriginales.filter((libro) => libro.categoria === categoria).length
+  );
+
+  if (!window.graficoCategorias) {
+    window.graficoCategorias = new window.Chart(canvas, {
+      type: "bar",
+      data: {
+        labels: [...categorias],
+        datasets: [
+          {
+            label: "Libros por categoría",
+            data: cantidades,
+            backgroundColor: "#D5AD70",
+            borderColor: "#243D32",
+            borderWidth: 1,
+            borderRadius: 6
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              precision: 0
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            display: false
+          }
+        }
+      }
+    });
+
+    return;
+  }
+
+  window.graficoCategorias.data.labels = [...categorias];
+  window.graficoCategorias.data.datasets[0].data = cantidades;
+  window.graficoCategorias.update();
 }
 
 // Registra los eventos del modal.
@@ -720,6 +785,7 @@ async function cargarLibros() {
   inicializarFiltros();
   filtrarLibros();
   actualizarKPIs();
+  actualizarGrafico();
 }
 
 cargarLibros();
