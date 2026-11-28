@@ -1,0 +1,21 @@
+REPORTE DE VALIDACIÓN — ANTES de corregir
+Archivo: libros-antes-con-errores.json
+Registros revisados: 35
+Errores encontrados: 14
+
+Índice | ID   | Campo            | Descripción
+-------|------|------------------|---------------------------------------------
+11     | 11   | id               | El ID 11 está duplicado.
+12     | 13   | codigo           | El código debe tener el formato LIB seguido de tres dígitos.
+13     | 14   | titulo           | El título debe contener entre 3 y 120 caracteres.
+14     | 15   | categoria        | La categoría debe pertenecer a la lista de categorías válidas: Literatura, Ciencia y tecnología, Educación, Historia, Infantil y juvenil, Desarrollo personal.
+15     | 16   | precio           | El precio debe ser un número entero positivo.
+16     | 17   | precio           | El precio debe ser un número entero positivo.
+17     | 18   | stock            | El stock debe ser un número entero mayor o igual a cero.
+18     | 19   | isbn             | El ISBN debe contener exactamente 13 dígitos numéricos.
+20     | 21   | isbn             | El ISBN 9780000000217 está duplicado.
+21     | 22   | isbn             | El dígito verificador del ISBN no es válido.
+22     | 23   | anioPublicacion  | El año de publicación debe ser un entero entre 1450 y 2026.
+23     | 24   | activo           | El campo activo debe contener un valor booleano (true o false).
+24     | 25   | stockMinimo      | El stock mínimo debe ser un número entero mayor o igual a cero.
+25     | 26   | autor            | El autor debe contener entre 3 y 80 caracteres.
