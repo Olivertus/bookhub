@@ -552,6 +552,126 @@ function validarFormulario() {
   return errores;
 }
 
+// Guarda el catálogo completo en localStorage.
+function guardarLibros() {
+  localStorage.setItem("bookhub-libros", JSON.stringify(librosOriginales));
+}
+
+// Crea un libro nuevo o actualiza uno existente.
+function guardarLibro() {
+  const errores = validarFormulario();
+
+  if (Object.keys(errores).length > 0) {
+    const primerCampoInvalido = formularioLibro.querySelector(
+      '[aria-invalid="true"]'
+    );
+
+    primerCampoInvalido?.focus();
+    return;
+  }
+
+  const datos = {};
+
+  camposLibro.forEach((campo) => {
+    const valor = formularioLibro.elements.namedItem(campo).value.trim();
+
+    datos[campo] = [
+      "precio",
+      "stock",
+      "stockMinimo",
+      "anioPublicacion"
+    ].includes(campo)
+      ? Number(valor)
+      : valor;
+  });
+
+  if (libroEnEdicionId !== null) {
+    // Actualiza los datos sin modificar el ID original.
+    const indice = librosOriginales.findIndex(
+      (libro) => String(libro.id) === String(libroEnEdicionId)
+    );
+
+    if (indice === -1) return;
+
+    librosOriginales[indice] = {
+      ...librosOriginales[indice],
+      ...datos,
+      id: librosOriginales[indice].id
+    };
+  } else {
+    // Asigna un ID consecutivo superior al máximo existente.
+    const idMaximo = librosOriginales.reduce(
+      (maximo, libro) => Math.max(maximo, Number(libro.id) || 0),
+      0
+    );
+
+    const nuevoId = idMaximo + 1;
+
+    librosOriginales.push({
+      id: nuevoId,
+      codigo: `LIB${String(nuevoId).padStart(3, "0")}`,
+      ...datos,
+      activo: true
+    });
+  }
+
+  guardarLibros();
+  filtrarLibros();
+  actualizarKPIs();
+  cerrarModal();
+}
+
+// Solicita confirmación antes de eliminar un libro.
+function eliminarLibro(id) {
+  const libro = librosOriginales.find(
+    (elemento) => String(elemento.id) === String(id)
+  );
+
+  if (!libro) return;
+
+  const confirmar = window.confirm(
+    `¿Estás seguro de que deseas eliminar "${libro.titulo}"?`
+  );
+
+  if (!confirmar) return;
+
+  librosOriginales = librosOriginales.filter(
+    (elemento) => String(elemento.id) !== String(id)
+  );
+
+  guardarLibros();
+  filtrarLibros();
+  actualizarKPIs();
+}
+
+// Gestiona las acciones de todas las tarjetas desde el catálogo.
+function inicializarAccionesCatalogo() {
+  const catalogoGrid = document.getElementById("catalogo-grid");
+
+  if (!catalogoGrid) return;
+
+  catalogoGrid.addEventListener("click", (evento) => {
+    const boton = evento.target.closest(
+      ".table-action-edit, .table-action-delete"
+    );
+
+    if (!boton || !catalogoGrid.contains(boton)) return;
+
+    const id = boton.dataset.id;
+
+    if (id === undefined) return;
+
+    if (boton.classList.contains("table-action-edit")) {
+      abrirModal(id);
+      return;
+    }
+
+    if (boton.classList.contains("table-action-delete")) {
+      eliminarLibro(id);
+    }
+  });
+}
+
 // Registra los eventos del modal.
 function inicializarModalLibros() {
   if (!modalLibro || !formularioLibro || !botonAgregar || !botonCancelarLibro) {
@@ -569,26 +689,37 @@ function inicializarModalLibros() {
     }
   });
 
-  // Por ahora solo valida; todavía no crea ni modifica registros.
+  // Valida y guarda el formulario sin duplicar la validación.
   formularioLibro.addEventListener("submit", (evento) => {
     evento.preventDefault();
-
-    const errores = validarFormulario();
-
-    if (Object.keys(errores).length === 0) {
-      console.info("Formulario válido. Todavía no se han guardado los datos.");
-    }
+    guardarLibro();
   });
 }
 
-document.addEventListener("DOMContentLoaded", inicializarModalLibros);
+document.addEventListener("DOMContentLoaded", () => {
+  inicializarModalLibros();
+  inicializarAccionesCatalogo();
+});
 
-// Carga el catálogo, guarda el arreglo original y activa los filtros.
-fetch("libros.json")
-  .then((respuesta) => respuesta.json())
-  .then((libros) => {
-    librosOriginales = libros;
-    inicializarFiltros();
-    filtrarLibros();
-    actualizarKPIs();
-  });
+// Carga el catálogo: primero localStorage, y si no hay datos, libros.json.
+async function cargarLibros() {
+  const guardados = localStorage.getItem("bookhub-libros");
+
+  if (guardados) {
+    try {
+      librosOriginales = JSON.parse(guardados);
+    } catch (error) {
+      console.error("No se pudieron leer los datos guardados.", error);
+      librosOriginales = [];
+    }
+  } else {
+    const respuesta = await fetch("libros.json");
+    librosOriginales = await respuesta.json();
+  }
+
+  inicializarFiltros();
+  filtrarLibros();
+  actualizarKPIs();
+}
+
+cargarLibros();
