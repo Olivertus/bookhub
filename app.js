@@ -35,8 +35,10 @@ function renderizarLibros(lista) {
   // Muestra un mensaje cuando no hay libros para presentar.
   if (!Array.isArray(lista) || lista.length === 0) {
     const mensaje = document.createElement("p");
-    mensaje.textContent = "No hay libros para mostrar.";
+    mensaje.classList.add("estado-mensaje");
+    mensaje.textContent = "No se encontraron libros con los filtros actuales. Prueba con otra búsqueda o limpia los filtros.";
     contenedor.appendChild(mensaje);
+    actualizarResumenCatalogo(0);
     return;
   }
 
@@ -134,6 +136,35 @@ function renderizarLibros(lista) {
 
   // Inserta todas las tarjetas en el contenedor en una sola operación.
   contenedor.appendChild(fragmento);
+  actualizarResumenCatalogo(lista.length);
+}
+
+// Muestra cuántos libros se ven del total del catálogo.
+function actualizarResumenCatalogo(cantidadVisible) {
+  const resumen = document.getElementById("catalogo-resumen");
+
+  if (!resumen) {
+    return;
+  }
+
+  resumen.textContent = `Mostrando ${cantidadVisible} de ${librosOriginales.length} libros.`;
+}
+
+// Muestra un mensaje de error visible dentro del catálogo.
+function mostrarErrorCatalogo(texto) {
+  const contenedor = document.getElementById("catalogo-grid");
+
+  if (!contenedor) {
+    return;
+  }
+
+  contenedor.replaceChildren();
+
+  const mensaje = document.createElement("p");
+  mensaje.classList.add("estado-mensaje", "estado-mensaje-error");
+  mensaje.setAttribute("role", "alert");
+  mensaje.textContent = texto;
+  contenedor.appendChild(mensaje);
 }
 
 // Obtiene los controles del sistema de filtros.
@@ -528,6 +559,11 @@ function validarFormulario() {
     errores.isbn = "El ISBN debe contener exactamente 13 dígitos.";
   }
 
+  // Comprueba el dígito verificador del ISBN (misma regla que validarLibros).
+  if (/^\d{13}$/.test(datos.isbn) && !esIsbn13Valido(datos.isbn)) {
+    errores.isbn = "El dígito verificador del ISBN no es válido.";
+  }
+
   // Evita repetir el ISBN de otro libro. Al editar, el propio libro no cuenta.
   if (/^\d{13}$/.test(datos.isbn)) {
     const isbnRepetido = librosOriginales.some((libro) =>
@@ -554,7 +590,13 @@ function validarFormulario() {
 
 // Guarda el catálogo completo en localStorage.
 function guardarLibros() {
-  localStorage.setItem("bookhub-libros", JSON.stringify(librosOriginales));
+  try {
+    localStorage.setItem("bookhub-libros", JSON.stringify(librosOriginales));
+  } catch (error) {
+    // Puede fallar si el almacenamiento está lleno o bloqueado por el navegador.
+    console.error("No se pudo guardar en localStorage.", error);
+    window.alert("No se pudieron guardar los cambios en este navegador. Los datos se perderán al recargar.");
+  }
 }
 
 // Crea un libro nuevo o actualiza uno existente.
@@ -766,20 +808,76 @@ document.addEventListener("DOMContentLoaded", () => {
   inicializarAccionesCatalogo();
 });
 
+// Lee y valida los datos guardados en localStorage. Devuelve null si no hay datos utilizables.
+function leerLibrosGuardados() {
+  let guardados = null;
+
+  try {
+    guardados = localStorage.getItem("bookhub-libros");
+  } catch (error) {
+    console.error("No se pudo acceder a localStorage.", error);
+    return null;
+  }
+
+  if (!guardados) {
+    return null;
+  }
+
+  try {
+    const datos = JSON.parse(guardados);
+
+    // Solo se descartan datos con estructura corrupta (no un arreglo de objetos).
+    if (!Array.isArray(datos) || datos.some((libro) => libro === null || typeof libro !== "object")) {
+      console.warn("Los datos guardados no tienen la estructura esperada. Se cargará libros.json.");
+      return null;
+    }
+
+    // Los errores de contenido se informan en consola, pero no se pierden los cambios del usuario.
+    const errores = validarLibros(datos);
+
+    if (errores.length > 0) {
+      console.warn(`Los datos guardados tienen ${errores.length} advertencia(s) de validación.`);
+      console.table(errores);
+    }
+
+    return datos;
+  } catch (error) {
+    console.error("No se pudieron leer los datos guardados.", error);
+    return null;
+  }
+}
+
 // Carga el catálogo: primero localStorage, y si no hay datos, libros.json.
 async function cargarLibros() {
-  const guardados = localStorage.getItem("bookhub-libros");
+  const guardados = leerLibrosGuardados();
 
   if (guardados) {
-    try {
-      librosOriginales = JSON.parse(guardados);
-    } catch (error) {
-      console.error("No se pudieron leer los datos guardados.", error);
-      librosOriginales = [];
-    }
+    librosOriginales = guardados;
   } else {
-    const respuesta = await fetch("libros.json");
-    librosOriginales = await respuesta.json();
+    try {
+      const respuesta = await fetch("libros.json");
+
+      if (!respuesta.ok) {
+        throw new Error(`Respuesta HTTP ${respuesta.status}`);
+      }
+
+      const datos = await respuesta.json();
+      const errores = validarLibros(datos);
+
+      if (errores.length > 0) {
+        console.table(errores);
+        throw new Error(`libros.json tiene ${errores.length} error(es) de validación.`);
+      }
+
+      librosOriginales = datos;
+      guardarLibros();
+    } catch (error) {
+      console.error("No se pudo cargar libros.json.", error);
+      mostrarErrorCatalogo(
+        "No se pudo cargar el catálogo. Si abriste el archivo directamente, ejecútalo desde un servidor local (por ejemplo, Live Server) y recarga la página."
+      );
+      return;
+    }
   }
 
   inicializarFiltros();
