@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BookHub: descubre historias, conocimientos y nuevas perspectivas. Explora libros de diferentes géneros y encuentra tu próxima lectura.">
+
+    <title>BookHub | Un mundo de historias y conocimiento</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- 1. HEADER Y NAVEGACIÓN -->
+    <header class="site-header" id="inicio">
+        <div class="container header-container">
+
+            <a href="#inicio" class="site-logo" aria-label="BookHub, ir al inicio">
+                BookHub
+            </a>
+
+            <nav class="main-navigation" aria-label="Navegación principal">
+                <ul class="navigation-list">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#categorias">Categorías</a></li>
+                    <li><a href="#destacados">Destacados</a></li>
+                    <li><a href="#novedades">Novedades</a></li>
+                    <li><a href="#autores-resenas">Autores</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#categorias" class="button button-secondary">
+                    Explorar catálogo
+                </a>
+
+                <a href="#suscripcion" class="button button-primary">
+                    Suscríbete
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- 2. HERO -->
+        <section class="hero-section" aria-labelledby="hero-title">
+            <div class="container hero-container">
+
+                <div class="hero-content">
+                    <p class="hero-eyebrow">
+                        Un mundo de historias y conocimiento
+                    </p>
+
+                    <h1 id="hero-title">
+                        Encuentra historias que transforman
+                    </h1>
+
+                    <p class="hero-description">
+                        Explora un universo de libros, descubre nuevas perspectivas
+                        y encuentra lecturas que despierten tu curiosidad,
+                        alimenten tu imaginación y acompañen tu crecimiento.
+                    </p>
+
+                    <a href="#categorias" class="button button-primary">
+                        Explorar catálogo
+                    </a>
+                </div>
+
+                <div class="hero-visual">
+                    <img
+                        src="https://placehold.co/600x450?text=Universo+BookHub"
+                        alt="Composición editorial de libros que representa el universo de lecturas de BookHub"
+                        class="hero-image"
+                        width="600"
+                        height="450"
+                    >
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 3. CATEGORÍAS -->
+        <section class="categories-section" id="categorias" aria-labelledby="categories-title">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="section-eyebrow">Explora y descubre</p>
+
+                    <h2 id="categories-title">
+                        Encuentra tu próximo mundo
+                    </h2>
+
+                    <p class="section-description">
+                        Recorre nuestras categorías y descubre lecturas
+                        que conectan con tus intereses y tu curiosidad.
+                    </p>
+                </div>
+
+                <div class="categories-grid">
+
+                    <article class="category-card">
+                        <div class="category-icon" aria-hidden="true">📖</div>
+
+                        <h3>Literatura</h3>
+
+                        <p>
+                            Novelas, cuentos y grandes historias para imaginar,
+                            sentir y descubrir otros mundos.
+                        </p>
+
+                        <a href="#destacados" class="text-link">
+                            Explorar libros destacados
+                        </a>
+                    </article>
+
+                    <article class="category-card">
+                        <div class="category-icon" aria-hidden="true">🔬</div>
+
+                        <h3>Ciencia y tecnología</h3>
+
+                        <p>
+                            Conocimientos, descubrimientos e ideas para comprender
+                            el mundo y su evolución.
+                        </p>
+
+                        <a href="#destacados" class="text-link">
+                            Explorar libros destacados
+                        </a>
+                    </article>
+
+                    <article class="category-card">
+                        <div class="category-icon" aria-hidden="true">📚</div>
+
+                        <h3>Educación</h3>
+
+                        <p>
+                            Recursos y lecturas que acompañan el aprendizaje
+                            y fortalecen el conocimiento.
+                        </p>
+
+                        <a href="#destacados" class="text-link">
+                            Explorar libros destacados
+                        </a>
+                    </article>
+
+                    <article class="category-card">
+                        <div class="category-icon" aria-hidden="true">🏛️</div>
+
+                        <h3>Historia</h3>
+
+                        <p>
+                            Viaja por diferentes épocas, culturas y acontecimientos
+                            que han marcado nuestra historia.
+                        </p>
+
+                        <a href="#destacados" class="text-link">
+                            Explorar libros destacados
+                        </a>
+                    </article>
+
+                    <article class="category-card">
+                        <div class="category-icon" aria-hidden="true">🌟</div>
+
+                        <h3>Infantil y juvenil</h3>
+
+                        <p>
+                            Aventuras, imaginación y aprendizajes para acompañar
+                            cada etapa del crecimiento.
+                        </p>
+
+                        <a href="#destacados" class="text-link">
+                            Explorar libros destacados
+                        </a>
+                    </article>
+
+                    <article class="category-card">
+                        <div class="category-icon" aria-hidden="true">🌱</div>
+
+                        <h3>Desarrollo personal</h3>
+
+                        <p>
+                            Lecturas para reflexionar, desarrollar habilidades
+                            y encontrar nuevas perspectivas.
+                        </p>
+
+                        <a href="#destacados" class="text-link">
+                            Explorar libros destacados
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 4. LIBROS DESTACADOS -->
+        <section class="featured-section" id="destacados" aria-labelledby="featured-title">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="section-eyebrow">Selección BookHub</p>
+
+                    <h2 id="featured-title">
+                        Libros destacados
+                    </h2>
+
+                    <p class="section-description">
+                        Una selección de historias y conocimientos
+                        que merecen un lugar en tu próxima lectura.
+                    </p>
+                </div>
+
+                <div class="books-grid">
+
+                    <article class="book-card">
+                        <img
+                            src="https://placehold.co/300x420?text=El+Jardin+de+las+Ideas"
+                            alt="Portada ficticia del libro El jardín de las ideas"
+                            class="book-cover"
+                            width="300"
+                            height="420"
+                            loading="lazy"
+                        >
+
+                        <div class="book-information">
+                            <p class="book-category">Literatura</p>
+
+                            <h3>El jardín de las ideas</h3>
+
+                            <p class="book-author">
+                                Autor de ejemplo: Lucía Valverde
+                            </p>
+
+                            <p class="book-description">
+                                Una historia sobre los pequeños descubrimientos
+                                que pueden transformar nuestra manera de ver la vida.
+                            </p>
+
+                            <a href="#suscripcion" class="button button-secondary">
+                                Conocer libro
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="book-card">
+                        <img
+                            src="https://placehold.co/300x420?text=El+Universo+Invisible"
+                            alt="Portada ficticia del libro El universo invisible"
+                            class="book-cover"
+                            width="300"
+                            height="420"
+                            loading="lazy"
+                        >
+
+                        <div class="book-information">
+                            <p class="book-category">Ciencia y tecnología</p>
+
+                            <h3>El universo invisible</h3>
+
+                            <p class="book-author">
+                                Autor de ejemplo: Mateo Ríos
+                            </p>
+
+                            <p class="book-description">
+                                Un recorrido divulgativo por los misterios
+                                y descubrimientos del universo.
+                            </p>
+
+                            <a href="#suscripcion" class="button button-secondary">
+                                Conocer libro
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="book-card">
+                        <img
+                            src="https://placehold.co/300x420?text=Aprender+Sin+Limites"
+                            alt="Portada ficticia del libro Aprender sin límites"
+                            class="book-cover"
+                            width="300"
+                            height="420"
+                            loading="lazy"
+                        >
+
+                        <div class="book-information">
+                            <p class="book-category">Educación</p>
+
+                            <h3>Aprender sin límites</h3>
+
+                            <p class="book-author">
+                                Autor de ejemplo: Daniel Herrera
+                            </p>
+
+                            <p class="book-description">
+                                Una mirada a las ideas y herramientas que
+                                hacen del aprendizaje una experiencia continua.
+                            </p>
+
+                            <a href="#suscripcion" class="button button-secondary">
+                                Conocer libro
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="book-card">
+                        <img
+                            src="https://placehold.co/300x420?text=Mapas+del+Tiempo"
+                            alt="Portada ficticia del libro Mapas del tiempo"
+                            class="book-cover"
+                            width="300"
+                            height="420"
+                            loading="lazy"
+                        >
+
+                        <div class="book-information">
+                            <p class="book-category">Historia</p>
+
+                            <h3>Mapas del tiempo</h3>
+
+                            <p class="book-author">
+                                Autor de ejemplo: Elena Montes
+                            </p>
+
+                            <p class="book-description">
+                                Un viaje por acontecimientos y civilizaciones
+                                que dejaron huella en el mundo.
+                            </p>
+
+                            <a href="#suscripcion" class="button button-secondary">
+                                Conocer libro
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="section-action">
+                    <a href="#novedades" class="button button-primary">
+                        Descubrir novedades
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 5. NOVEDADES -->
+        <section class="new-arrivals-section" id="novedades" aria-labelledby="new-arrivals-title">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="section-eyebrow">Recién llegados</p>
+
+                    <h2 id="new-arrivals-title">
+                        Nuevas lecturas para descubrir
+                    </h2>
+
+                    <p class="section-description">
+                        Amplía tus horizontes con nuevas propuestas
+                        para aprender, imaginar y explorar.
+                    </p>
+                </div>
+
+                <div class="new-arrivals-grid">
+
+                    <article class="book-card new-book-card">
+                        <span class="new-label">Nuevo</span>
+
+                        <img
+                            src="https://placehold.co/300x420?text=Pequenos+Exploradores"
+                            alt="Portada ficticia del libro Pequeños exploradores"
+                            class="book-cover"
+                            width="300"
+                            height="420"
+                            loading="lazy"
+                        >
+
+                        <div class="book-information">
+                            <p class="book-category">Infantil y juvenil</p>
+
+                            <h3>Pequeños exploradores</h3>
+
+                            <p class="book-author">
+                                Autor de ejemplo: Sara Castillo
+                            </p>
+
+                            <p class="book-description">
+                                Una aventura llena de curiosidad, imaginación
+                                y descubrimientos.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="book-card new-book-card">
+                        <span class="new-label">Nuevo</span>
+
+                        <img
+                            src="https://placehold.co/300x420?text=El+Arte+de+Comenzar"
+                            alt="Portada ficticia del libro El arte de comenzar"
+                            class="book-cover"
+                            width="300"
+                            height="420"
+                            loading="lazy"
+                        >
+
+                        <div class="book-information">
+                            <p class="book-category">Desarrollo personal</p>
+
+                            <h3>El arte de comenzar</h3>
+
+                            <p class="book-author">
+                                Autor de ejemplo: Andrés Molina
+                            </p>
+
+                            <p class="book-description">
+                                Reflexiones para afrontar nuevos retos
+                                y construir oportunidades.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="book-card new-book-card">
+                        <span class="new-label">Nuevo</span>
+
+                        <img
+                            src="https://placehold.co/300x420?text=Memoria+de+las+Ciudades"
+                            alt="Portada ficticia del libro Memoria de las ciudades"
+                            class="book-cover"
+                            width="300"
+                            height="420"
+                            loading="lazy"
+                        >
+
+                        <div class="book-information">
+                            <p class="book-category">Historia</p>
+
+                            <h3>Memoria de las ciudades</h3>
+
+                            <p class="book-author">
+                                Autor de ejemplo: Nicolás Fuentes
+                            </p>
+
+                            <p class="book-description">
+                                Historias y transformaciones de los lugares
+                                que habitamos.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="section-action">
+                    <a href="#categorias" class="button button-secondary">
+                        Volver al catálogo
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 6. BENEFICIOS -->
+        <section class="benefits-section" id="beneficios" aria-labelledby="benefits-title">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="section-eyebrow">La experiencia BookHub</p>
+
+                    <h2 id="benefits-title">
+                        Tu próxima lectura comienza aquí
+                    </h2>
+
+                    <p class="section-description">
+                        Un espacio pensado para acercarte a nuevas ideas,
+                        conocimientos e historias.
+                    </p>
+                </div>
+
+                <div class="benefits-grid">
+
+                    <article class="benefit-card">
+                        <div class="benefit-icon" aria-hidden="true">🌍</div>
+
+                        <h3>Diversidad de géneros y conocimientos</h3>
+
+                        <p>
+                            Explora diferentes categorías y encuentra
+                            contenidos para cada interés.
+                        </p>
+                    </article>
+
+                    <article class="benefit-card">
+                        <div class="benefit-icon" aria-hidden="true">✍️</div>
+
+                        <h3>Descubrimiento de nuevos autores</h3>
+
+                        <p>
+                            Conoce nuevas voces, perspectivas e historias
+                            que amplían tu mundo.
+                        </p>
+                    </article>
+
+                    <article class="benefit-card">
+                        <div class="benefit-icon" aria-hidden="true">🌿</div>
+
+                        <h3>Lecturas para diferentes etapas de la vida</h3>
+
+                        <p>
+                            Encuentra propuestas que acompañan tus intereses,
+                            aprendizajes y experiencias.
+                        </p>
+                    </article>
+
+                    <article class="benefit-card">
+                        <div class="benefit-icon" aria-hidden="true">💡</div>
+
+                        <h3>Un espacio para aprender e inspirarse</h3>
+
+                        <p>
+                            Descubre ideas que despiertan la curiosidad
+                            y motivan nuevas perspectivas.
+                        </p>
+                    </article>
+
+                </div>
+
+                <div class="section-action">
+                    <a href="#categorias" class="button button-primary">
+                        Explorar catálogo
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 7. AUTORES Y RESEÑAS -->
+        <section class="authors-reviews-section" id="autores-resenas" aria-labelledby="authors-reviews-title">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="section-eyebrow">Personas e historias</p>
+
+                    <h2 id="authors-reviews-title">
+                        Voces que inspiran lecturas
+                    </h2>
+
+                    <p class="section-description">
+                        Conoce algunas de las voces y experiencias
+                        que forman parte del universo editorial de BookHub.
+                    </p>
+                </div>
+
+                <div class="authors-reviews-grid">
+
+                    <!-- Autores destacados -->
+                    <div class="authors-block">
+                        <div class="block-heading">
+                            <h3>Autores destacados</h3>
+                            <span class="example-label">Contenido de ejemplo</span>
+                        </div>
+
+                        <div class="authors-list">
+
+                            <article class="author-card">
+                                <img
+                                    src="https://placehold.co/160x160?text=Lucia+Valverde"
+                                    alt="Retrato ilustrativo de la autora ficticia Lucía Valverde"
+                                    class="author-image"
+                                    width="160"
+                                    height="160"
+                                    loading="lazy"
+                                >
+
+                                <div class="author-information">
+                                    <h4>Lucía Valverde</h4>
+
+                                    <p>
+                                        Escritora ficticia interesada en explorar
+                                        las emociones humanas y las historias
+                                        que nacen de lo cotidiano.
+                                    </p>
+                                </div>
+                            </article>
+
+                            <article class="author-card">
+                                <img
+                                    src="https://placehold.co/160x160?text=Mateo+Rios"
+                                    alt="Retrato ilustrativo del autor ficticio Mateo Ríos"
+                                    class="author-image"
+                                    width="160"
+                                    height="160"
+                                    loading="lazy"
+                                >
+
+                                <div class="author-information">
+                                    <h4>Mateo Ríos</h4>
+
+                                    <p>
+                                        Divulgador ficticio apasionado por la ciencia,
+                                        la tecnología y la exploración del universo.
+                                    </p>
+                                </div>
+                            </article>
+
+                        </div>
+                    </div>
+
+
+                    <!-- Reseñas de lectores -->
+                    <div class="reviews-block">
+                        <div class="block-heading">
+                            <h3>Reseñas de lectores</h3>
+                            <span class="example-label">Contenido de ejemplo</span>
+                        </div>
+
+                        <div class="reviews-list">
+
+                            <div class="review-card">
+                                <div class="review-decoration" aria-hidden="true">“</div>
+
+                                <blockquote>
+                                    <p>
+                                        Me encanta encontrar libros de diferentes
+                                        temas en un mismo lugar. Siempre hay algo
+                                        nuevo por descubrir.
+                                    </p>
+                                </blockquote>
+
+                                <p class="review-author">
+                                    — Camila Torres
+                                    <span class="review-example-note">Lectora ficticia</span>
+                                </p>
+                            </div>
+
+                            <div class="review-card">
+                                <div class="review-decoration" aria-hidden="true">“</div>
+
+                                <blockquote>
+                                    <p>
+                                        BookHub representa ese espacio donde
+                                        la curiosidad y las ganas de aprender
+                                        siempre encuentran nuevas posibilidades.
+                                    </p>
+                                </blockquote>
+
+                                <p class="review-author">
+                                    — Sebastián López
+                                    <span class="review-example-note">Lector ficticio</span>
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="section-action">
+                    <a href="#destacados" class="button button-primary">
+                        Descubrir libros destacados
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 8. SUSCRIPCIÓN -->
+        <section class="subscription-section" id="suscripcion" aria-labelledby="subscription-title">
+            <div class="container subscription-container">
+
+                <div class="subscription-content">
+                    <p class="section-eyebrow">Conecta con BookHub</p>
+
+                    <h2 id="subscription-title">
+                        Mantente cerca de nuevas historias
+                    </h2>
+
+                    <p class="subscription-description">
+                        Déjanos tus datos para expresar tu interés en recibir
+                        novedades, recomendaciones y contenidos del universo BookHub.
+                    </p>
+                </div>
+
+                <form class="subscription-form" action="#" method="post">
+
+                    <div class="form-field">
+                        <label for="subscriber-name">
+                            Nombre
+                        </label>
+
+                        <input
+                            type="text"
+                            id="subscriber-name"
+                            name="nombre"
+                            placeholder="Escribe tu nombre"
+                            autocomplete="name"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="subscriber-email">
+                            Correo electrónico
+                        </label>
+
+                        <input
+                            type="email"
+                            id="subscriber-email"
+                            name="correo"
+                            placeholder="ejemplo@correo.com"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-consent">
+                        <input
+                            type="checkbox"
+                            id="subscription-consent"
+                            name="consentimiento"
+                            required
+                        >
+
+                        <label for="subscription-consent">
+                            Acepto el tratamiento de mis datos de acuerdo
+                            con la política de privacidad.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="button button-primary">
+                        Quiero suscribirme
+                    </button>
+
+                    <p class="form-disclaimer">
+                        Formulario demostrativo: los datos no se envían
+                        ni se almacenan en un servicio externo.
+                    </p>
+
+                </form>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- 9. FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div class="footer-brand">
+                    <a href="#inicio" class="site-logo footer-logo">
+                        BookHub
+                    </a>
+
+                    <p class="footer-description">
+                        Un mundo de historias y conocimiento.
+                        Un espacio para descubrir libros, explorar ideas
+                        y encontrar nuevas perspectivas.
+                    </p>
+                </div>
+
+
+                <div class="footer-navigation">
+                    <h2>Explora</h2>
+
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#categorias">Categorías</a></li>
+                        <li><a href="#destacados">Libros destacados</a></li>
+                        <li><a href="#novedades">Novedades</a></li>
+                        <li><a href="#autores-resenas">Autores y reseñas</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-contact">
+                    <h2>Contacto</h2>
+
+                    <p>
+                        ¿Quieres conocer más sobre BookHub?
+                    </p>
+
+                    <a href="mailto:contacto@bookhub.com.co">
+                        contacto@bookhub.com.co
+                    </a>
+
+                    <p class="contact-note">
+                        Información de contacto de ejemplo.
+                    </p>
+                </div>
+
+
+                <div class="footer-subscription">
+                    <h2>Mantente al día</h2>
+
+                    <p>
+                        Descubre nuevas historias y contenidos.
+                    </p>
+
+                    <a href="#suscripcion" class="footer-subscription-link">
+                        Ir al formulario de suscripción
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <p id="politica-privacidad">
+                    <a href="#politica-privacidad">
+                        Política de privacidad
+                    </a>
+                </p>
+
+                <p class="copyright">
+                    &copy; 2026 BookHub. Todos los derechos reservados.
+                </p>
+
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
