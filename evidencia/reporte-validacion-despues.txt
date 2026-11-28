@@ -1,0 +1,6 @@
+REPORTE DE VALIDACIÓN — DESPUÉS de corregir
+Archivo: libros-despues-corregido.json
+Registros revisados: 35
+Errores encontrados: 0
+
+Resultado: SIN ERRORES. El dataset cumple todas las reglas.
