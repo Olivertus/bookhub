@@ -266,6 +266,10 @@
             </section>
             <div id="catalogo-grid" class="books-grid" aria-live="polite"></div>
         </section>
+    <section class="grafico-section" aria-labelledby="grafico-title">
+        <h2 id="grafico-title">Libros por categoría</h2>
+        <canvas id="grafico-categorias" role="img" aria-label="Gráfico de barras con la cantidad de libros por categoría"></canvas>
+    </section>
     </main>
     <section id="modal-libro" class="modal-libro" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-libro" hidden>
         <div class="modal-libro-content">
@@ -340,6 +344,7 @@
             </form>
         </div>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js"></script>
     <script src="validacion.js"></script>
     <script src="dashboard.js"></script>
     <script src="app.js"></script>
