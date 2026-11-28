@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookHub | Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <button type="button" class="menu-toggle" id="menu-toggle" aria-controls="sidebar" aria-expanded="false" aria-label="Abrir menú">
+        <span class="menu-icon-open" aria-hidden="true">☰</span>
+        <span class="menu-icon-close" aria-hidden="true">×</span>
+    </button>
+
+    <aside class="sidebar" id="sidebar" aria-label="Navegación del panel">
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-logo">BookHub</a>
+        </div>
+
+        <hr class="sidebar-divider">
+
+        <nav aria-label="Menú del dashboard">
+            <ul class="sidebar-nav">
+                <li>
+                    <a href="#" class="sidebar-link is-active" aria-current="page">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="3" y="3" width="7" height="9" rx="1"/>
+                            <rect x="14" y="3" width="7" height="5" rx="1"/>
+                            <rect x="14" y="12" width="7" height="9" rx="1"/>
+                            <rect x="3" y="16" width="7" height="5" rx="1"/>
+                        </svg>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="sidebar-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"/>
+                            <path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"/>
+                        </svg>
+                        <span>Libros</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="sidebar-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M21 8 12 3 3 8v8l9 5 9-5z"/>
+                            <path d="M3 8l9 5 9-5"/>
+                            <path d="M12 13v8"/>
+                        </svg>
+                        <span>Inventario</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="sidebar-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+                            <circle cx="7" cy="7" r="1.5"/>
+                        </svg>
+                        <span>Categorías</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="sidebar-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M3 3v18h18"/>
+                            <path d="M7 15l4-4 3 3 5-6"/>
+                        </svg>
+                        <span>Reportes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="sidebar-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                        </svg>
+                        <span>Configuración</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-user">
+            <p>Administrador</p>
+        </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+    <main class="container">
+        <h1>Dashboard</h1>
+
+        <section class="kpi-section" aria-labelledby="kpi-title">
+            <h2 id="kpi-title">Indicadores clave</h2>
+
+            <div class="kpi-grid">
+
+                <div class="kpi-card">
+                    <div class="kpi-icon" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 7v14"/>
+                            <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/>
+                        </svg>
+                    </div>
+                    <p class="kpi-label">Libros registrados</p>
+                    <p class="kpi-value" id="kpi-total-libros">0</p>
+                    <p class="kpi-description">Total de títulos en el catálogo</p>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/>
+                            <path d="M12 9v4"/>
+                            <path d="M12 17h.01"/>
+                        </svg>
+                    </div>
+                    <p class="kpi-label">Inventario bajo</p>
+                    <p class="kpi-value" id="kpi-inventario-bajo">0</p>
+                    <p class="kpi-description">Títulos con stock igual o inferior al stock mínimo</p>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/>
+                            <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/>
+                        </svg>
+                    </div>
+                    <p class="kpi-label">Valor del inventario</p>
+                    <p class="kpi-value" id="kpi-valor-inventario">$0</p>
+                    <p class="kpi-description">Suma de precio por unidades disponibles, en pesos colombianos (COP)</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="inventory-section" aria-labelledby="inventory-title">
+            <h2 id="inventory-title">Inventario de libros</h2>
+
+            <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="inventory-title">
+                <table class="inventory-table">
+                    <caption class="visually-hidden">Listado de libros con código, categoría, precio, stock, autor, estado y acciones</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Código</th>
+                            <th scope="col">Libro</th>
+                            <th scope="col">Categoría</th>
+                            <th scope="col">Precio COP</th>
+                            <th scope="col">Stock</th>
+                            <th scope="col">Autor</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>LIB001</td>
+                            <td>Cien años de soledad</td>
+                            <td>Literatura</td>
+                            <td class="cell-number">$55.000</td>
+                            <td class="cell-number">18</td>
+                            <td>Gabriel García Márquez</td>
+                            <td><span class="badge-disponible">Disponible</span></td>
+                            <td class="cell-actions">
+                                <button type="button" class="table-action table-action-edit" aria-label="Editar Cien años de soledad">Editar</button>
+                                <button type="button" class="table-action table-action-delete" aria-label="Eliminar Cien años de soledad">Eliminar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>LIB002</td>
+                            <td>Clean Code</td>
+                            <td>Ciencia y tecnología</td>
+                            <td class="cell-number">$120.000</td>
+                            <td class="cell-number">4</td>
+                            <td>Robert C. Martin</td>
+                            <td><span class="badge-stock-bajo">Stock bajo</span></td>
+                            <td class="cell-actions">
+                                <button type="button" class="table-action table-action-edit" aria-label="Editar Clean Code">Editar</button>
+                                <button type="button" class="table-action table-action-delete" aria-label="Eliminar Clean Code">Eliminar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>LIB003</td>
+                            <td>El principito</td>
+                            <td>Infantil y juvenil</td>
+                            <td class="cell-number">$32.000</td>
+                            <td class="cell-number">24</td>
+                            <td>Antoine de Saint-Exupéry</td>
+                            <td><span class="badge-disponible">Disponible</span></td>
+                            <td class="cell-actions">
+                                <button type="button" class="table-action table-action-edit" aria-label="Editar El principito">Editar</button>
+                                <button type="button" class="table-action table-action-delete" aria-label="Eliminar El principito">Eliminar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>LIB004</td>
+                            <td>Sapiens</td>
+                            <td>Historia</td>
+                            <td class="cell-number">$89.000</td>
+                            <td class="cell-number">0</td>
+                            <td>Yuval Noah Harari</td>
+                            <td><span class="badge-agotado">Agotado</span></td>
+                            <td class="cell-actions">
+                                <button type="button" class="table-action table-action-edit" aria-label="Editar Sapiens">Editar</button>
+                                <button type="button" class="table-action table-action-delete" aria-label="Eliminar Sapiens">Eliminar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>LIB005</td>
+                            <td>Hábitos atómicos</td>
+                            <td>Desarrollo personal</td>
+                            <td class="cell-number">$75.000</td>
+                            <td class="cell-number">40</td>
+                            <td>James Clear</td>
+                            <td><span class="badge-disponible">Disponible</span></td>
+                            <td class="cell-actions">
+                                <button type="button" class="table-action table-action-edit" aria-label="Editar Hábitos atómicos">Editar</button>
+                                <button type="button" class="table-action table-action-delete" aria-label="Eliminar Hábitos atómicos">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+            <section class="catalogo-section" aria-labelledby="catalogo-title">
+            <h2 id="catalogo-title">Catálogo de libros</h2>
+            <button id="boton-agregar" class="button button-primary" type="button">
+                Agregar libro
+            </button>
+            <section class="catalogo-filtros" aria-label="Filtros del catálogo">
+                <div class="filtro-busqueda">
+                    <label for="buscador">Buscar libros</label>
+                    <input type="search" id="buscador" placeholder="Buscar por título, autor, editorial o ISBN..." autocomplete="off">
+                </div>
+
+                <div class="filtro-categoria">
+                    <label for="filtro-categoria">Categoría</label>
+                    <select id="filtro-categoria">
+                        <option value="">Todas las categorías</option>
+                    </select>
+                </div>
+
+                <div class="filtro-editorial">
+                    <label for="filtro-editorial">Editorial</label>
+                    <select id="filtro-editorial">
+                        <option value="">Todas las editoriales</option>
+                    </select>
+                </div>
+
+                <div class="filtro-estado">
+                    <label for="filtro-estado">Estado del inventario</label>
+                    <select id="filtro-estado">
+                        <option value="">Todos los estados</option>
+                        <option value="Disponible">Disponible</option>
+                        <option value="Stock bajo">Stock bajo</option>
+                        <option value="Agotado">Agotado</option>
+                    </select>
+                </div>
+
+                <button type="button" id="limpiar-filtros">Limpiar filtros</button>
+            </section>
+            <div id="catalogo-grid" class="books-grid" aria-live="polite"></div>
+        </section>
+    </main>
+    <section id="modal-libro" class="modal-libro" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-libro" hidden>
+        <div class="modal-libro-content">
+            <h2 id="titulo-modal-libro">Agregar libro</h2>
+            <form id="form-libro" novalidate>
+                <div class="form-field">
+                    <label for="titulo">Título</label>
+                    <input id="titulo" name="titulo" type="text" required aria-describedby="error-titulo">
+                    <p id="error-titulo" class="field-error" aria-live="polite"></p>
+                </div>
+                <div class="form-field">
+                    <label for="categoria">Categoría</label>
+                    <select id="categoria" name="categoria" required aria-describedby="error-categoria">
+                        <option value="">Selecciona una categoría</option>
+                        <option value="Literatura">Literatura</option>
+                        <option value="Ciencia y tecnología">Ciencia y tecnología</option>
+                        <option value="Educación">Educación</option>
+                        <option value="Historia">Historia</option>
+                        <option value="Infantil y juvenil">Infantil y juvenil</option>
+                        <option value="Desarrollo personal">Desarrollo personal</option>
+                    </select>
+                    <p id="error-categoria" class="field-error" aria-live="polite"></p>
+                </div>
+                <div class="form-field">
+                    <label for="precio">Precio (COP)</label>
+                    <input id="precio" name="precio" type="number" step="1" required aria-describedby="error-precio">
+                    <p id="error-precio" class="field-error" aria-live="polite"></p>
+                </div>
+                <div class="form-field">
+                    <label for="stock">Stock</label>
+                    <input id="stock" name="stock" type="number" step="1" required aria-describedby="error-stock">
+                    <p id="error-stock" class="field-error" aria-live="polite"></p>
+                </div>
+                <div class="form-field">
+                    <label for="stockMinimo">Stock mínimo</label>
+                    <input id="stockMinimo" name="stockMinimo" type="number" step="1" required aria-describedby="error-stockMinimo">
+                    <p id="error-stockMinimo" class="field-error" aria-live="polite"></p>
+                </div>
+                <div class="form-field">
+                    <label for="autor">Autor</label>
+                    <input id="autor" name="autor" type="text" required aria-describedby="error-autor">
+                    <p id="error-autor" class="field-error" aria-live="polite"></p>
+                </div>
+                <div class="form-field">
+                    <label for="editorial">Editorial</label>
+                    <select id="editorial" name="editorial" required aria-describedby="error-editorial">
+                        <option value="">Selecciona una editorial</option>
+                        <option value="Planeta">Planeta</option>
+                        <option value="Penguin Random House">Penguin Random House</option>
+                        <option value="Alfaguara">Alfaguara</option>
+                        <option value="Anagrama">Anagrama</option>
+                        <option value="Norma">Norma</option>
+                        <option value="Editorial Sudamericana">Editorial Sudamericana</option>
+                        <option value="McGraw-Hill">McGraw-Hill</option>
+                    </select>
+                    <p id="error-editorial" class="field-error" aria-live="polite"></p>
+                </div>
+                <div class="form-field">
+                    <label for="isbn">ISBN</label>
+                    <input id="isbn" name="isbn" type="text" inputmode="numeric" maxlength="13" required aria-describedby="error-isbn">
+                    <p id="error-isbn" class="field-error" aria-live="polite"></p>
+                </div>
+                <div class="form-field">
+                    <label for="anioPublicacion">Año de publicación</label>
+                    <input id="anioPublicacion" name="anioPublicacion" type="number" step="1" required aria-describedby="error-anioPublicacion">
+                    <p id="error-anioPublicacion" class="field-error" aria-live="polite"></p>
+                </div>
+                <div class="modal-libro-actions">
+                    <button class="button button-primary" type="submit">Guardar</button>
+                    <button id="boton-cancelar-libro" class="button button-secondary" type="button">Cancelar y cerrar</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <script src="validacion.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
